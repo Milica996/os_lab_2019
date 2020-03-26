@@ -2,5 +2,10 @@
 
 void Swap(char *left, char *right)
 {
-	// ваш код здесь
+	char x = *left;
+    *left = *right;
+    *right = x;
 }
+
+// gcc main.c swap.c -o swap
+// ./swap
