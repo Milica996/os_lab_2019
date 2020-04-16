@@ -111,14 +111,15 @@ int main(int argc, char **argv) {
   }
 
   float cut = (float)array_size / pnum;
-  for (int i = 0; i < pnum; i++) {
+  int j;
+  for (j = 0; j < pnum; j++) {
     pid_t child_pid = fork();
     if (child_pid >= 0) {      
       active_child_processes += 1;
       if (child_pid == 0) {
         sleep (10);
-        printf("Succesfull fork: %d %d\n ", i, getpid());
-        int arr_start = cut * (float)i;
+        printf("Succesfull fork: %d %d\n ", j, getpid());
+        int arr_start = cut * (float)j;
         int arr_end = arr_start + cut;
         
         struct MinMax min_max1 = GetMinMax(array, arr_start, arr_end);
@@ -161,7 +162,7 @@ int main(int argc, char **argv) {
   min_max.min = INT_MAX;
   min_max.max = INT_MIN;
 
-  for (int i = 0; i < pnum; i++) {
+  for (j = 0; j < pnum; j++) {
     int min = INT_MAX;
     int max = INT_MIN;
 
