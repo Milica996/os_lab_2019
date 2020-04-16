@@ -15,6 +15,7 @@
 #include "find_min_max.h"
 #include "utils.h"
 #include <signal.h>
+
 void al()
 {
     kill(0,SIGKILL);
